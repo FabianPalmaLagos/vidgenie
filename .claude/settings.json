@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "minimax": {
+      "command": "npx",
+      "args": ["-y", "@minimax-ai/mcp-server-minimax"],
+      "env": {
+        "MINIMAX_API_KEY": "your-minimax-api-key-here",
+        "MINIMAX_GROUP_ID": "your-group-id-here"
+      }
+    }
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Starting agent task: ' && echo $TOOL_INPUT | jq -r '.description // \"Unknown task\"'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "mcp__minimax__.*",
+        "hooks": [
+          {
+            "type": "command", 
+            "command": "echo 'MiniMax operation completed successfully'"
+          }
+        ]
+      }
+    ]
+  }
+}
