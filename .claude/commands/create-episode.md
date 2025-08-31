@@ -56,7 +56,7 @@ Usar el subagente media-hunter para:
 
 ### Fase 5: Generación de Audio (voice-generator)
 Usar el subagente voice-generator para:
-1. Convertir guión a audio con MiniMax MCP
+1. Generar prompts JSON para conversión de guión a audio
 2. Generar voces diferenciadas para cada locutor
 3. Aplicar pausas y énfasis narrativos
 4. Exportar pistas de audio sincronizadas
@@ -76,14 +76,16 @@ generated/episodes/[canal]/[serie]/[episodio]/
 ├── 01_research.md          # Investigación completa
 ├── 02_script.md            # Guión del podcast
 ├── 03_storyboard.json      # Planificación visual
-├── 04_assets/              # Recursos multimedia
+├── 04_prompts/             # Prompts JSON para IA
+│   ├── voice_prompts.json  # Instrucciones para voces
+│   ├── image_prompts.json  # Descripciones para imágenes
+│   ├── video_prompts.json  # Instrucciones de video
+│   └── audio_prompts.json  # Música y efectos
+├── 05_assets/              # Recursos multimedia descargados
 │   ├── images/
 │   ├── videos/
 │   └── audio/
-├── 05_podcast.wav          # Audio final del podcast
-├── 06_video_final.mp4      # Video completo
-├── 07_thumbnails/          # Miniaturas generadas
-├── 08_metadata.json        # Datos del episodio
+├── 06_metadata.json        # Datos del episodio
 └── production.log          # Log del proceso
 ```
 

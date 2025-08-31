@@ -127,14 +127,14 @@ LOCUTOR B (Analista): "Es increíble pensar, María, que un joven mapuche que ni
 - Pexels, Unsplash, Pixabay (landscapes, nature)
 - Wikimedia Commons (historical images)
 - Library of Congress (historical archives)  
-- MiniMax MCP (AI-generated content)
+- Prompts JSON para generación de contenido IA
 - Archive.org (historical documents)
 
 ### 5. Voice Generator Agent - Generador de Voz
 **Archivo**: `.claude/agents/voice-generator.md`
 
 **Responsabilidades:**
-- Conversión texto-a-voz usando MiniMax MCP
+- Generación de prompts JSON para texto-a-voz
 - Generación de voces diferenciadas para cada locutor
 - Control de velocidad, entonación y pausas
 - Sincronización de diálogos
@@ -205,7 +205,7 @@ Validar guión para exactitud histórica y calidad narrativa
 **Archivo**: `.claude/commands/generate-thumbnail.md`
 
 **Funcionalidad:**
-Generar thumbnail atractivo usando MiniMax MCP
+Generar prompts JSON para thumbnails atractivos
 
 ## Output Styles Personalizados
 
@@ -254,30 +254,16 @@ Procesar automáticamente recursos multimedia después de la descarga
 **Propósito:**
 Verificar calidad del contenido generado antes de finalizar
 
-## Configuración MiniMax MCP
+## Sistema de Prompts JSON
 
-### Instalación y Setup
-```json
-{
-  "mcpServers": {
-    "minimax": {
-      "command": "uv",
-      "args": ["--directory", "/path/to/minimax-mcp", "run", "minimax-mcp"],
-      "env": {
-        "MINIMAX_API_KEY": "your-api-key",
-        "MINIMAX_BASE_URL": "https://api.minimax.chat"
-      }
-    }
-  }
-}
-```
+### Generación Automatizada de Prompts
+El sistema genera archivos JSON estructurados con instrucciones detalladas para herramientas de IA:
 
-### Herramientas Disponibles
-- `text_to_audio`: Conversión texto a voz
-- `generate_video`: Creación de videos desde texto
-- `text_to_image`: Generación de imágenes
-- `voice_clone`: Clonación de voces específicas
-- `voice_design`: Diseño de voces personalizadas
+### Tipos de Prompts Generados
+- `voice_prompts.json`: Instrucciones para texto-a-voz
+- `image_prompts.json`: Descripciones para generación de imágenes
+- `video_prompts.json`: Instrucciones de edición de video
+- `audio_prompts.json`: Música y efectos de sonido
 
 ## Estructura de Directorios
 
@@ -343,13 +329,13 @@ vidgenie/
 - [ ] Configurar estructura de directorios
 - [ ] Implementar research-agent básico
 - [ ] Crear comando /create-episode inicial
-- [ ] Configurar MiniMax MCP
+- [ ] Implementar generación de prompts JSON
 
 ### Fase 2: Core Agents (Semana 2-3)
 - [ ] Desarrollar script-writer con templates narrativos
 - [ ] Implementar visual-planner con storyboard automation
 - [ ] Crear media-hunter con búsqueda automatizada
-- [ ] Integrar voice-generator con MiniMax
+- [ ] Integrar voice-generator con prompts JSON
 
 ### Fase 3: Integration & Automation (Semana 4)
 - [ ] Desarrollar video-composer con ffmpeg

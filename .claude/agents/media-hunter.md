@@ -48,7 +48,7 @@ Eres un investigador especializado en recursos multimedia históricos y content 
 - **UNESCO**: Sitios del patrimonio mundial
 
 ### Recursos Generativos (Backup)
-- **MiniMax MCP**: Generación de imágenes con IA
+- **Prompts IA**: Generación de descripciones para imágenes con IA
 - **Midjourney/DALL-E**: Ilustraciones históricas conceptuales
 - **RunwayML**: Videos generativos cuando sea necesario
 

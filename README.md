@@ -29,7 +29,7 @@ VidGenie es un sistema avanzado de agentes especializados construido con **Claud
 | ✍️ **script-writer** | Guiones narrativos conversacionales | Read, Write, Bash, Grep |
 | 🎨 **visual-planner** | Storyboard y planificación visual | Read, Write, Bash |
 | 🎯 **media-hunter** | Búsqueda y curación de recursos multimedia | WebSearch, WebFetch, Bash |
-| 🎤 **voice-generator** | Generación de voces con MiniMax MCP | Bash, Read, Write |
+| 🎤 **voice-generator** | Generación de prompts JSON para voces | Read, Write, Bash |
 | 🎬 **video-composer** | Ensamblaje y renderizado final | Bash, Read, Write, Glob |
 
 ### Pipeline de Producción
@@ -50,7 +50,6 @@ flowchart LR
 
 ### Prerequisitos
 - **Claude Code**: Versión más reciente instalada
-- **Node.js**: 18+ para MiniMax MCP
 - **FFmpeg**: Para procesamiento de video
 - **Python**: 3.11+ para scripts de soporte
 
@@ -62,11 +61,8 @@ git clone https://github.com/tu-usuario/vidgenie.git
 cd vidgenie
 ```
 
-2. **Configurar MiniMax MCP**
-```bash
-# Obtener API key en https://api.minimax.chat
-# Actualizar .claude/settings.json con tu API key
-```
+2. **¡Listo para usar!**
+No requiere configuración adicional de APIs externas.
 
 3. **¡Listo para usar!**
 ```bash
@@ -116,7 +112,6 @@ Activa el modo documentalista para mejores resultados:
 ```
 vidgenie/
 ├── 📋 plan-vidgenie-agent.md          # Especificaciones completas del sistema
-├── 🔧 MINIMAX_SETUP.md               # Guía de configuración MiniMax MCP
 │
 ├── .claude/
 │   ├── agents/                       # Agentes especializados
@@ -164,7 +159,7 @@ vidgenie/
    - Generación de contenido faltante con IA
 
 5. **🎤 Generación de Audio** (4-6 min)
-   - Voces diferenciadas con MiniMax MCP
+   - Prompts JSON para generar voces diferenciadas
    - Aplicación de pausas y énfasis
    - Exportación en calidad broadcast
 
@@ -190,8 +185,6 @@ vidgenie/
 ### Variables de Entorno
 ```bash
 # .env
-MINIMAX_API_KEY=tu_api_key_aqui
-MINIMAX_GROUP_ID=tu_group_id_aqui
 ANTHROPIC_API_KEY=opcional_para_validation
 ```
 
@@ -237,11 +230,6 @@ El sistema incluye hooks para validación y logging automático:
 
 ### Errores Comunes
 
-**❌ "MiniMax API Key Invalid"**
-```bash
-# Verificar configuración en .claude/settings.json
-# Confirmar API key en https://api.minimax.chat
-```
 
 **❌ "Research agent no encuentra fuentes"**
 ```bash
@@ -266,7 +254,7 @@ claude --debug
 cat ~/.claude/logs/hooks.log
 
 # Revisar estado de MCP
-/mcp status
+/create-episode "Tu episodio de prueba" --canal "TuCanal"
 ```
 
 ## 🤝 Contribución
@@ -284,7 +272,6 @@ cat ~/.claude/logs/hooks.log
 ## 📞 Soporte y Comunidad
 
 - **📚 Documentación**: Revisar `plan-vidgenie-agent.md` para detalles completos
-- **🔧 Setup MiniMax**: Seguir `MINIMAX_SETUP.md` paso a paso
 - **💬 Issues**: Reportar problemas en GitHub Issues
 - **📧 Contacto**: [tu-email@domain.com]
 
