@@ -1,0 +1,47 @@
+{
+  "api": {
+    "base_url": "https://api.minimax.chat",
+    "api_key": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJHcm91cE5hbWUiOiJGYWJpYW4gUGFsbWEiLCJVc2VyTmFtZSI6IkZhYmlhbiBQYWxtYSIsIkFjY291bnQiOiIiLCJTdWJqZWN0SUQiOiIxOTYxODkwOTg2NzQ5NTk2NTY1IiwiUGhvbmUiOiIiLCJHcm91cElEIjoiMTk2MTg5MDk4Mzc3NTgzOTEyNiIsIlBhZ2VOYW1lIjoiIiwiTWFpbCI6ImZhYmlhbi5wYWxtYS5sYWdvc0BnbWFpbC5jb20iLCJDcmVhdGVUaW1lIjoiMjAyNS0wOC0zMSAwODo0MjowMSIsIlRva2VuVHlwZSI6MSwiaXNzIjoibWluaW1heCJ9.ppT8aIQ2XWNT5SyocArnLh7-ksabYvH0YIkcH7e9UqCtoE6mREKcr-1c5BJrrOoWOTXoInbAcDX3PuzU2YgXplY734iGwPHfNVXXmwVVI4Dhwf-ZZH26czcD2CMaDiAkLUvZhfJbHCxvvsFhyeDr-PJe2nEWaOuIzA5qcuNCLXXue-yGOyzeqelZwxzdCndQas7lv8BPWF-HN-sN4Ft1ffOkNFyAytZckrjLNpC8r1vgU_B3up7LCDHM377OfpWK-1oYheLdA176eG93AEvjjycMYM8UM3P2M4HOP-U76YechAFLALjRqYmasHtdFV6QAutEjsULuKyKPJ8TCCbM7w",
+    "group_id": "1961890983775839126"
+  },
+  "tts": {
+    "endpoint": "/v1/tts",
+    "default_settings": {
+      "model": "speech-01-turbo",
+      "voice_setting": {
+        "speed": 1.0,
+        "vol": 1.0,
+        "pitch": 0,
+        "emotion": "happy",
+        "timber_weights": []
+      },
+      "format": "mp3"
+    },
+    "voices": {
+      "maria": {
+        "voice_id": "female-sweet",
+        "voice_setting": {
+          "speed": 1.0,
+          "vol": 0.8,
+          "pitch": 0,
+          "emotion": "neutral"
+        }
+      },
+      "carlos": {
+        "voice_id": "male-deep",
+        "voice_setting": {
+          "speed": 0.95,
+          "vol": 0.75,
+          "pitch": -1,
+          "emotion": "happy"
+        }
+      }
+    }
+  },
+  "audio": {
+    "endpoint": "/v1/audio/generation",
+    "default_settings": {
+      "model": "music-01"
+    }
+  }
+}

@@ -56,7 +56,7 @@ Usar el subagente media-hunter para:
 
 ### Fase 5: Generación de Audio (voice-generator)
 Usar el subagente voice-generator para:
-1. Convertir guión a audio con MiniMax MCP
+1. Convertir guión a audio con API directa de MiniMax
 2. Generar voces diferenciadas para cada locutor
 3. Aplicar pausas y énfasis narrativos
 4. Exportar pistas de audio sincronizadas

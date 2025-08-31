@@ -260,12 +260,17 @@ Verificar calidad del contenido generado antes de finalizar
 ```json
 {
   "mcpServers": {
-    "minimax": {
-      "command": "uv",
-      "args": ["--directory", "/path/to/minimax-mcp", "run", "minimax-mcp"],
+    "MiniMax": {
+      "command": "uvx",
+      "args": [
+        "minimax-mcp",
+        "-y"
+      ],
       "env": {
-        "MINIMAX_API_KEY": "your-api-key",
-        "MINIMAX_BASE_URL": "https://api.minimax.chat"
+        "MINIMAX_API_KEY": "insert-your-api-key-here",
+        "MINIMAX_MCP_BASE_PATH": "local-output-dir-path, such as /User/xxx/Desktop",
+        "MINIMAX_API_HOST": "api host, https://api.minimax.io | https://api.minimaxi.com",
+        "MINIMAX_API_RESOURCE_MODE": "optional, [url|local], url is default, audio/image/video are downloaded locally or provided in URL format"
       }
     }
   }

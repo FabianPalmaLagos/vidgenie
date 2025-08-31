@@ -1,14 +1,4 @@
 {
-  "mcpServers": {
-    "minimax": {
-      "command": "npx",
-      "args": ["-y", "@minimax-ai/mcp-server-minimax"],
-      "env": {
-        "MINIMAX_API_KEY": "your-minimax-api-key-here",
-        "MINIMAX_GROUP_ID": "your-group-id-here"
-      }
-    }
-  },
   "hooks": {
     "PreToolUse": [
       {

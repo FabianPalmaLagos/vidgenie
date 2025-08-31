@@ -2,35 +2,36 @@
 
 ## Prerequisitos
 
-1. **Cuenta MiniMax**: Registrarse en [https://api.minimax.chat](https://api.minimax.chat)
-2. **API Key**: Obtener tu clave API desde el dashboard
-3. **Group ID**: Identificar tu Group ID en la configuración de cuenta
-4. **Node.js**: Versión 18 o superior instalada
+1. **Cuenta MiniMax**: Obtener API key de [MiniMax Global](https://www.minimax.io/platform/user-center/basic-information/interface-key) o [MiniMax China](https://platform.minimaxi.com/user-center/basic-information/interface-key)
+2. **uv**: Instalar gestor de paquetes Python con `curl -LsSf https://astral.sh/uv/install.sh | sh`
+3. **Host Configuration**: Configurar el host correcto según región (Global: https://api.minimax.io | China: https://api.minimaxi.com)
 
 ## Instalación
 
-### Método 1: Instalación Global NPX (Recomendado)
+### Método 1: Instalación Global uvx (Recomendado)
 ```bash
-# No requiere instalación previa, npx descarga automáticamente
-npx -y @minimax-ai/mcp-server-minimax
+# No requiere instalación previa, uvx descarga automáticamente
+uvx minimax-mcp -y
 ```
 
-### Método 2: Clonación del Repositorio
+### Método 2: Instalación con uv
 ```bash
-git clone https://github.com/MiniMax-AI/MiniMax-MCP.git
-cd MiniMax-MCP
-npm install
+# Instalar uv si no está disponible
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# Usar el servidor MiniMax MCP
+uvx minimax-mcp -y
 ```
 
 ## Configuración
 
 ### 1. Variables de Entorno
 
-Crear archivo `.env` en la raíz del proyecto:
+Las variables se configuran directamente en `.claude/settings.json`:
 ```env
-MINIMAX_API_KEY=your_actual_api_key_here
-MINIMAX_GROUP_ID=your_group_id_here
-MINIMAX_BASE_URL=https://api.minimax.chat/v1
+MINIMAX_API_KEY=insert-your-api-key-here
+MINIMAX_MCP_BASE_PATH=local-output-dir-path
+MINIMAX_API_HOST=https://api.minimax.io
+MINIMAX_API_RESOURCE_MODE=local
 ```
 
 ### 2. Actualizar Settings.json
@@ -39,12 +40,17 @@ En `.claude/settings.json`, reemplazar placeholders:
 ```json
 {
   "mcpServers": {
-    "minimax": {
-      "command": "npx",
-      "args": ["-y", "@minimax-ai/mcp-server-minimax"],
+    "MiniMax": {
+      "command": "uvx",
+      "args": [
+        "minimax-mcp",
+        "-y"
+      ],
       "env": {
-        "MINIMAX_API_KEY": "tu_api_key_real_aqui",
-        "MINIMAX_GROUP_ID": "tu_group_id_real_aqui"
+        "MINIMAX_API_KEY": "insert-your-api-key-here",
+        "MINIMAX_MCP_BASE_PATH": "local-output-dir-path, such as /User/xxx/Desktop",
+        "MINIMAX_API_HOST": "api host, https://api.minimax.io | https://api.minimaxi.com",
+        "MINIMAX_API_RESOURCE_MODE": "optional, [url|local], url is default, audio/image/video are downloaded locally or provided in URL format"
       }
     }
   }
@@ -58,20 +64,23 @@ En `.claude/settings.json`, reemplazar placeholders:
 # En Claude Code
 /mcp
 ```
-Deberías ver el servidor "minimax" listado y conectado.
+Deberías ver el servidor "MiniMax" listado y conectado.
 
 ### Paso 2: Listar Herramientas Disponibles
 ```bash
 # En Claude Code
-/mcp minimax tools
+/mcp MiniMax tools
 ```
 
 Herramientas esperadas:
-- `mcp__minimax__text_to_audio`
-- `mcp__minimax__generate_video` 
-- `mcp__minimax__text_to_image`
-- `mcp__minimax__voice_clone`
-- `mcp__minimax__voice_design`
+- `text_to_audio` - Convert text to audio with a given voice
+- `list_voices` - List all voices available
+- `voice_clone` - Clone a voice using provided audio files
+- `generate_video` - Generate a video from a prompt
+- `text_to_image` - Generate a image from a prompt
+- `query_video_generation` - Query the result of video generation task
+- `music_generation` - Generate a music track from a prompt and lyrics
+- `voice_design` - Generate a voice from a prompt using preview text
 
 ### Paso 3: Prueba Básica
 ```bash
